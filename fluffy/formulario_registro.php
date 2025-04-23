@@ -16,7 +16,7 @@
         </div>
         <div class="col-5 justify-content-right border border-2 rounded-3 p-4 mt-5 bg-light">
           <h2 class="text-center mb-4">Regístrate</h2>                
-          <form action="validacion_registro" method="post">
+          <form action="validacion_registro.php" method="post">
             <div class="mb-3">
               <label class="form-label" for="inputGroupSelect01"></label>
               <select class="form-select" id="inputGroupSelect01" name="document_type">

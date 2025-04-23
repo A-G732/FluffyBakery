@@ -19,6 +19,8 @@ CREATE TABLE IF NOT EXISTS languages (
 CREATE TABLE IF NOT EXISTS register (
     document_number BIGINT UNSIGNED NOT NULL UNIQUE,
     document_type VARCHAR(30) NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    lastname VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     date_add DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -214,17 +216,17 @@ INSERT INTO languages (language_code, language_name, status) VALUES
 ('zh-CN', '中文 (简体)', 'inactive'),
 ('ja-JP', '日本語 (日本)', 'inactive'),
 ('ru-RU', 'Русский (Россия)', 'inactive');
-INSERT INTO register (document_number, document_type, email, password, registration_status) VALUES 
-(1039476766,'cc','a.g.g0109180@gmail.com','Aa12345*','verified'),
-(1039476451,'cc','paolaandreagonzalezg231@gmail.com','Pp12345*','vrified'),
-(21698160,'cc','martha.nelsi.guerra@gmail.com','Mm12345*','rejected'),
-(30028670,'cc','patriciapuerta1030@gmail.com','Oo12345*','verified'),
-(1034567827,'cc','lunava0505@gmail.com','Ll12345*','pending'),
-(102034678,'t.i','carlos.lopez@gmail.com','Cc12345*','pending'),
-(93117052,'cc','emily.jones@gmail.com','Ee12345*','verified'),
-(1039675432,'cc','michael.brown@gmail.com','Bb12345*','pending'),
-(21345678,'cc','sarah.davis@gmail.com','Ss12345*','rejected'),
-(12345678,'cc','luis.lopez@gmail.com','Zz12345*','verified');
+INSERT INTO register (document_number, document_type, name, lastname, email, password, registration_status) VALUES 
+(1039476766,'cc','Ana', 'Gonzalez','a.g.g0109180@gmail.com','Aa12345*','verified'),
+(1039476451,'cc','Ana', 'Gonzalez','paolaandreagonzalezg231@gmail.com','Pp12345*','vrified'),
+(21698160,'cc','Ana', 'Gonzalez','martha.nelsi.guerra@gmail.com','Mm12345*','rejected'),
+(30028670,'cc','Ana', 'Gonzalez','patriciapuerta1030@gmail.com','Oo12345*','verified'),
+(1034567827,'cc','Ana', 'Gonzalez','lunava0505@gmail.com','Ll12345*','pending'),
+(102034678,'t.i','Ana', 'Gonzalez','carlos.lopez@gmail.com','Cc12345*','pending'),
+(93117052,'cc','Ana', 'Gonzalez','emily.jones@gmail.com','Ee12345*','verified'),
+(1039675432,'cc','Ana', 'Gonzalez','michael.brown@gmail.com','Bb12345*','pending'),
+(21345678,'cc','Ana', 'Gonzalez','sarah.davis@gmail.com','Ss12345*','rejected'),
+(12345678,'cc','Ana', 'Gonzalez','luis.lopez@gmail.com','Zz12345*','verified');
 INSERT INTO users (document_number, id_language, active, name, lastname, document_type, email, rol) VALUES
 (1039476766, 1, 1, 'Ana', 'Gonzalez', 'cc', 'a.g.g0109180@gmail.com', 'admin'), 
 (1039476451, 1, 1, 'Paola', 'Gonzalez', 'cc', 'paolaandreagonzalezg231@gmail.com', 'cliente'), 
@@ -579,8 +581,8 @@ CREATE PROCEDURE register_user(
     IN p_name VARCHAR(50),
     IN p_lastname VARCHAR(50)
 ) BEGIN
-    INSERT INTO register (document_number, document_type, email, password)
-    VALUES (p_document_number, p_document_type, p_email, p_password);
+    INSERT INTO register (document_number, document_type, email, password, name, lastname)
+    VALUES (p_document_number, p_document_type, p_email, p_password, p_name, p_lastname);
     INSERT INTO users (document_number, name, lastname, document_type, email)
     VALUES (p_document_number, p_name, p_lastname, p_document_type, p_email);
 END //
