@@ -1,0 +1,7 @@
+@use "sass:math";
+@use "sass:color";
+
+
+$nav-divider-margin-y: math.div($spacer, 2) !default;
+$navbar-padding-y: math.div($spacer, 2) !default;
+$link-hover-color: color.adjust($link-color, $lightness: -15%) !default;

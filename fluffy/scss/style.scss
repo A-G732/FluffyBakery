@@ -1,8 +1,9 @@
 /******* Bootstrap Theming ********/
+@use "sass:math";  
 
 $primary: #FF8EA5;
 $secondary: #F3C1C2;
-$light: #DE0707;
+$color_Alert: #DE0707;
 $dark: #F7F5DC;
 
 $font-family-sans-serif: 'Poppins', sans-serif;
@@ -21,16 +22,26 @@ $border-radius: 5px;
 
 
 /********** Custom CSS ************/
+
+.carousel-img {
+    width: 100%;
+    height: 600px; 
+    object-fit: cover;
+    object-position: center;
+}
+  
 h1,
 h2,
 .font-weight-bold {
     font-weight: 700 !important;
+    color: $primary;
 }
 
 h3,
 h4,
 .font-weight-semi-bold {
     font-weight: 600 !important;
+    color: $primary;
 }
 
 h5,
@@ -47,7 +58,7 @@ h6,
 
 .btn.btn-primary,
 .btn.btn-secondary {
-    color: $light;
+    color: $dark;
 }
 
 .form-control {
@@ -83,7 +94,7 @@ h6,
 
 .navbar-light .navbar-nav .nav-link {
     padding: 30px 15px;
-    color: $dark;
+    color: $primary;
     font-size: 17px;
     font-weight: 500;
     outline: none;
@@ -121,8 +132,12 @@ h6,
 }
 
 .page-header {
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/header.jpg), no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/3galletas.jpeg), no-repeat center center;
     background-size: cover;
+    width: 100%;
+    height: 480px; 
+    object-fit: cover;
+    object-position: center;
 }
 
 .section-title::before {
@@ -310,7 +325,7 @@ h6,
 }
 
 .product-item:hover h5 {
-    color: $light !important;
+    color: $dark !important;
 }
 
 .product-item:hover .btn {
