@@ -711,6 +711,8 @@ CREATE PROCEDURE delete_user(
     DELETE FROM users WHERE document_number = p_document_number;
     DELETE FROM register WHERE document_number = p_document_number;
 END //
+DELIMITER ;
+
 -- CONSULTAS
 -- 1. info de un usuario
 SELECT * FROM user_details_view
