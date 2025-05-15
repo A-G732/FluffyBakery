@@ -5,7 +5,9 @@
     <meta charset="utf-8">
     <title>Fluffy Pasteleria</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Explora nuestro delicioso catálogo de postres y galletas artesanales. Realiza tus pedidos fácilmente y disfruta de sabores únicos." name="description">
+    <meta
+        content="Explora nuestro delicioso catálogo de postres y galletas artesanales. Realiza tus pedidos fácilmente y disfruta de sabores únicos."
+        name="description">
 
     <!-- Favicon -->
     <link href="img/logo.jpeg" rel="icon">
@@ -33,16 +35,37 @@
                 <div class="col-md-12 text-center text-lg-right">
                     <div class="d-inline-flex align-items-center">
 
-                        <a class="text-white px-3" href="https://www.instagram.com/fluffybakeryshop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+                        <a class="text-white px-3"
+                            href="https://www.instagram.com/fluffybakeryshop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
                             <i class="fab fa-instagram"></i>
                         </a>
                         <div class="dropdown">
-                            <a class="text-white px-3 dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="text-white px-3 dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-user"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                <li><a class="dropdown-item" href="formulario_login.php">Iniciar Sesión</a></li>
-                                <li><a class="dropdown-item" href="formulario_registro.php">Regístrate</a></li>
+                                <li><a class="dropdown-item" href="formulario_login.php" data-bs-toggle="modal"
+                                        data-bs-target="#loginModal">Inicia Sesión</a></li>
+                                <!--Modal Login-->
+                                <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModal"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="loginModal">Inicia Sesión</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Cerrar"></button>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                <?php include 'formulario_login.php'; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Fin Modal Login-->
+                                <li><a class="dropdown-item" href="formulario_registro.php" data-bs-toggle="modal"
+                                        data-bs-target="#registerModal">Regístrate</a></li>
                             </ul>
                         </div>
                     </div>
@@ -61,7 +84,7 @@
                     <h1 class="m-0 display-4 text-primary">FLUFFY</h1>
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span> 
+                    <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
@@ -93,7 +116,8 @@
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3">Nuestras galletas</h4>
-                            <h1 class="display-3 text-white mb-md-4">Aquí podrás visualizar nuestra variedad de galletas</h1>
+                            <h1 class="display-3 text-white mb-md-4">Aquí podrás visualizar nuestra variedad de galletas
+                            </h1>
                             <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Mirar más</a>
                         </div>
                     </div>
@@ -103,7 +127,8 @@
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3">Nuestros demás postres</h4>
-                            <h1 class="display-3 text-white mb-md-4">Aquí podrás visualizar nuestra amplia variedad de postres</h1>
+                            <h1 class="display-3 text-white mb-md-4">Aquí podrás visualizar nuestra amplia variedad de
+                                postres</h1>
                             <a href="inventario.html" class="btn btn-primary py-md-3 px-md-5 mt-2">Mirar más</a>
                         </div>
                     </div>
@@ -135,50 +160,59 @@
             <div class="row">
                 <div class="col-lg-4 py-5">
                     <h4 class="font-weight-bold mb-3">Pie de limón</h4>
-                    <h5 class="text-muted mb-3">La galleta Pie de limón, es la galleta de la casa, creemos que es casi adictiva comerla.</h5>
+                    <h5 class="text-muted mb-3">La galleta Pie de limón, es la galleta de la casa, creemos que es casi
+                        adictiva comerla.</h5>
                 </div>
                 <div class="col-lg-4" style="min-height: 400px;">
                     <div class="position-relative h-100 rounded overflow-hidden">
-                        <img class="position-absolute w-100 h-100" src="img/galletapiedelimon1.jpeg" style="object-fit: cover;">
+                        <img class="position-absolute w-100 h-100" src="img/galletapiedelimon1.jpeg"
+                            style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-4 py-5">
                     <h4 class="font-weight-bold mb-3">¿Cuales son los puntos positivos?</h4>
-                    <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>No vas a querer dejar de comerla.</h5>
-                    <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>¡Su sabor es inexplicable!</h5>
-                    <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>Vas a querer compartirla con tus amigos y familiares.</h5>
+                    <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>No vas a querer dejar de
+                        comerla.</h5>
+                    <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>¡Su sabor es
+                        inexplicable!</h5>
+                    <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>Vas a querer compartirla
+                        con tus amigos y familiares.</h5>
                     <a href="" class="btn btn-primary mt-2">Mostrar más</a>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <div class="container-fluid my-5 py-5 px-0">
         <div class="row bg-primary m-0">
             <div class="col-md-6 px-0" style="min-height: 500px;">
                 <div class="position-relative h-100">
-                    <img class="position-absolute w-100 h-100" src="img/galletachocolate1.jpeg" style="object-fit: cover;">
+                    <img class="position-absolute w-100 h-100" src="img/galletachocolate1.jpeg"
+                        style="object-fit: cover;">
                 </div>
             </div>
             <div class="col-md-6 py-5 py-md-0 px-0">
                 <div class="h-100 d-flex flex-column align-items-center justify-content-center text-center p-5">
                     <h3 class="font-weight-bold text-white mt-3 mb-4">Galleta Chococruji</h3>
-                    <p class="text-white mb-4">Galleta rellena de chocolante crujiente, se siente una gran sensación de dulzura en el paladar</p>
+                    <p class="text-white mb-4">Galleta rellena de chocolante crujiente, se siente una gran sensación de
+                        dulzura en el paladar</p>
                     <a href="" class="btn btn-secondary py-3 px-5 mt-2">Orden ya</a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-body">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                    </button>        
+                    </button>
                     <!-- 16:9 aspect ratio -->
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
+                        <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always"
+                            allow="autoplay"></iframe>
                     </div>
                 </div>
             </div>
@@ -201,42 +235,60 @@
                     <div class="owl-carousel service-carousel">
                         <div class="service-item">
                             <div class="service-img mx-auto">
-                                <img class="rounded-circle w-100 h-100 bg-light p-3" src="img/galletaredvelvet2.jpeg" style="object-fit: cover;">
+                                <img class="rounded-circle w-100 h-100 bg-light p-3" src="img/galletaredvelvet2.jpeg"
+                                    style="object-fit: cover;">
                             </div>
-                            <div class="position-relative text-center bg-light rounded p-4 pb-5" style="margin-top: -75px;">
+                            <div class="position-relative text-center bg-light rounded p-4 pb-5"
+                                style="margin-top: -75px;">
                                 <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">Galleta Red Velvet</h5>
                                 <p>Galleta de color rojo con un relleno de crema de quesocrema.</p>
-                                <a href="" class="border-bottom border-secondary text-decoration-none text-secondary">Quiero esta</a>
+                                <a href=""
+                                    class="border-bottom border-secondary text-decoration-none text-secondary">Quiero
+                                    esta</a>
                             </div>
                         </div>
                         <div class="service-item">
                             <div class="service-img mx-auto">
-                                <img class="rounded-circle w-100 h-100 bg-light p-3" src="img/galletapiedelimon1.jpeg" style="object-fit: cover;">
+                                <img class="rounded-circle w-100 h-100 bg-light p-3" src="img/galletapiedelimon1.jpeg"
+                                    style="object-fit: cover;">
                             </div>
-                            <div class="position-relative text-center bg-light rounded p-4 pb-5" style="margin-top: -75px;">
+                            <div class="position-relative text-center bg-light rounded p-4 pb-5"
+                                style="margin-top: -75px;">
                                 <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">Galleta Pie de limón</h5>
-                                <p>La galleta pie de limón, tiene una crema encima que de inmadiato cuando lo comes hace una explosión en tu boca de lo citrica y a la vez lo dulces que es, es nuetro TOP 1!</p>
-                                <a href="" class="border-bottom border-secondary text-decoration-none text-secondary">Quiero esta</a>
+                                <p>La galleta pie de limón, tiene una crema encima que de inmadiato cuando lo comes hace
+                                    una explosión en tu boca de lo citrica y a la vez lo dulces que es, es nuetro TOP 1!
+                                </p>
+                                <a href=""
+                                    class="border-bottom border-secondary text-decoration-none text-secondary">Quiero
+                                    esta</a>
                             </div>
                         </div>
                         <div class="service-item">
                             <div class="service-img mx-auto">
-                                <img class="rounded-circle w-100 h-100 bg-light p-3" src="img/galletamasmelos1.jpeg" style="object-fit: cover;">
+                                <img class="rounded-circle w-100 h-100 bg-light p-3" src="img/galletamasmelos1.jpeg"
+                                    style="object-fit: cover;">
                             </div>
-                            <div class="position-relative text-center bg-light rounded p-4 pb-5" style="margin-top: -75px;">
+                            <div class="position-relative text-center bg-light rounded p-4 pb-5"
+                                style="margin-top: -75px;">
                                 <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">Galleta Lucky Charms</h5>
                                 <p>Esta galleta, tiene una deliciosa crema encima dulce y encima de ella, dulces!</p>
-                                <a href="" class="border-bottom border-secondary text-decoration-none text-secondary">Quiero esta</a>
+                                <a href=""
+                                    class="border-bottom border-secondary text-decoration-none text-secondary">Quiero
+                                    esta</a>
                             </div>
                         </div>
                         <div class="service-item">
                             <div class="service-img mx-auto">
-                                <img class="rounded-circle w-100 h-100 bg-light p-3" src="img/galletaoreo2.jpeg" style="object-fit: cover;">
+                                <img class="rounded-circle w-100 h-100 bg-light p-3" src="img/galletaoreo2.jpeg"
+                                    style="object-fit: cover;">
                             </div>
-                            <div class="position-relative text-center bg-light rounded p-4 pb-5" style="margin-top: -75px;">
+                            <div class="position-relative text-center bg-light rounded p-4 pb-5"
+                                style="margin-top: -75px;">
                                 <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">Galleta Oreo con Cheescake</h5>
                                 <p>Esta es una galleta hecha de oreo con un relleno de Cheescake</p>
-                                <a href="" class="border-bottom border-secondary text-decoration-none text-secondary">Quiero esta</a>
+                                <a href=""
+                                    class="border-bottom border-secondary text-decoration-none text-secondary">Quiero
+                                    esta</a>
                             </div>
                         </div>
                     </div>
@@ -244,11 +296,11 @@
             </div>
         </div>
     </div>
-    
-                    </div>
-                </div>
-            </div>
-        </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
     <!-- Products End -->
 
@@ -267,44 +319,56 @@
                     <div class="owl-carousel team-carousel">
                         <div class="team-item">
                             <div class="team-img mx-auto">
-                                <img class="rounded-circle w-100 h-100" src="img/galletaarequipe1.jpeg" style="object-fit: cover;">
+                                <img class="rounded-circle w-100 h-100" src="img/galletaarequipe1.jpeg"
+                                    style="object-fit: cover;">
                             </div>
-                            <div class="position-relative text-center bg-light rounded px-4 py-5" style="margin-top: -100px;">
+                            <div class="position-relative text-center bg-light rounded px-4 py-5"
+                                style="margin-top: -100px;">
                                 <h3 class="font-weight-bold mt-5 mb-3 pt-5">Churro con arequipe</h3>
-                                <h6 class="text-uppercase text-muted mb-4">Galleta destacada por su gran definido sabor a churro ¡muy dulce!</h6>
+                                <h6 class="text-uppercase text-muted mb-4">Galleta destacada por su gran definido sabor
+                                    a churro ¡muy dulce!</h6>
                                 <div class="d-flex justify-content-center pt-1">
                                 </div>
                             </div>
                         </div>
                         <div class="team-item">
                             <div class="team-img mx-auto">
-                                <img class="rounded-circle w-100 h-100" src="img/galletaderretida2.jpeg" style="object-fit: cover;">
+                                <img class="rounded-circle w-100 h-100" src="img/galletaderretida2.jpeg"
+                                    style="object-fit: cover;">
                             </div>
-                            <div class="position-relative text-center bg-light rounded px-4 py-5" style="margin-top: -100px;">
+                            <div class="position-relative text-center bg-light rounded px-4 py-5"
+                                style="margin-top: -100px;">
                                 <h3 class="font-weight-bold mt-5 mb-3 pt-5">Galleta Smore's</h3>
-                                <h6 class="text-uppercase text-muted mb-4">Galleta con chocolate amargo encima y masmelos </h6>
+                                <h6 class="text-uppercase text-muted mb-4">Galleta con chocolate amargo encima y
+                                    masmelos </h6>
                                 <div class="d-flex justify-content-center pt-1">
                                 </div>
                             </div>
                         </div>
                         <div class="team-item">
                             <div class="team-img mx-auto">
-                                <img class="rounded-circle w-100 h-100" src="img/galletacream2.jpeg" style="object-fit: cover;">
+                                <img class="rounded-circle w-100 h-100" src="img/galletacream2.jpeg"
+                                    style="object-fit: cover;">
                             </div>
-                            <div class="position-relative text-center bg-light rounded px-4 py-5" style="margin-top: -100px;">
+                            <div class="position-relative text-center bg-light rounded px-4 py-5"
+                                style="margin-top: -100px;">
                                 <h3 class="font-weight-bold mt-5 mb-3 pt-5">Galleta Snicker</h3>
-                                <h6 class="text-uppercase text-muted mb-4">Galleta con arequipe encima y trozos de snicker</h6>
+                                <h6 class="text-uppercase text-muted mb-4">Galleta con arequipe encima y trozos de
+                                    snicker</h6>
                                 <div class="d-flex justify-content-center pt-1">
                                 </div>
                             </div>
                         </div>
                         <div class="team-item">
                             <div class="team-img mx-auto">
-                                <img class="rounded-circle w-100 h-100" src="img/galletahbd1.jpeg" style="object-fit: cover;">
+                                <img class="rounded-circle w-100 h-100" src="img/galletahbd1.jpeg"
+                                    style="object-fit: cover;">
                             </div>
-                            <div class="position-relative text-center bg-light rounded px-4 py-5" style="margin-top: -100px;">
+                            <div class="position-relative text-center bg-light rounded px-4 py-5"
+                                style="margin-top: -100px;">
                                 <h3 class="font-weight-bold mt-5 mb-3 pt-5">Galleta Cumple</h3>
-                                <h6 class="text-uppercase text-muted mb-4">Galleta con un glaceado de vainilla y chispas de colores</h6>
+                                <h6 class="text-uppercase text-muted mb-4">Galleta con un glaceado de vainilla y chispas
+                                    de colores</h6>
                                 <div class="d-flex justify-content-center pt-1">
                                 </div>
                             </div>
@@ -330,7 +394,8 @@
                     <div class="owl-carousel testimonial-carousel">
                         <div class="text-center">
                             <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                            <h4 class="font-weight-light mb-4">Cada mordisco es un viaje al reino de los sabores. ¿Te unes a la aventura?</h4>
+                            <h4 class="font-weight-light mb-4">Cada mordisco es un viaje al reino de los sabores. ¿Te
+                                unes a la aventura?</h4>
                             <img class="img-fluid mx-auto mb-3" src="img/browniedorado1.jpeg" alt="">
                             <h5 class="font-weight-bold m-0">Brownies</h5>
                         </div>
@@ -342,7 +407,8 @@
                         </div>
                         <div class="text-center">
                             <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                            <h4 class="font-weight-light mb-4">¡No hay que pensar dos veces para tardear con las galletas fluffy!</h4>
+                            <h4 class="font-weight-light mb-4">¡No hay que pensar dos veces para tardear con las
+                                galletas fluffy!</h4>
                             <img class="img-fluid mx-auto mb-3" src="img/galletachocolateempaque1.jpeg" alt="">
                             <h5 class="font-weight-bold m-0">Cajitas</h5>
                         </div>
@@ -380,7 +446,7 @@
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
