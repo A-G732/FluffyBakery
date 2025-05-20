@@ -47,26 +47,47 @@
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                                 <li><a class="dropdown-item" href="formulario_login.php" data-bs-toggle="modal"
                                         data-bs-target="#loginModal">Inicia Sesión</a></li>
-                                <!--Modal Login-->
-                                <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModal"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="loginModal">Inicia Sesión</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Cerrar"></button>
-                                            </div>
-                                            <div class="modal-body text-center">
-                                                <?php include 'formulario_login.php'; ?>
+                                <li><a class="dropdown-item" href="formulario_registro.php" data-bs-toggle="modal"
+                                        data-bs-target="#registerModal">Regístrate</a></li>
+                            </ul>
+                            <!--Modal Login-->
+                            <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModal"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Cerrar"></button>
+                                            <?php include 'formulario_login.php'; ?>
+                                            <div class="text-center">
+                                                <p class="text-center mt-3">
+                                                    ¿Aún no tienes cuenta? <a href="formulario_registro.php" data-bs-toggle="modal"
+                                                        data-bs-target="#registerModal">Regístrate aquí</a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!--Fin Modal Login-->
-                                <li><a class="dropdown-item" href="formulario_registro.php" data-bs-toggle="modal"
-                                        data-bs-target="#registerModal">Regístrate</a></li>
-                            </ul>
+                            </div>
+                            <!--Fin Modal Login-->
+                            <!--Modal Register-->
+                            <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModal"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Cerrar"></button>
+                                            <?php include 'formulario_registro.php'; ?>
+                                            <div class="text-center">
+                                                <p>¿Ya estás registrado? <a href="formulario_login.php" data-bs-toggle="modal"
+                                        data-bs-target="#loginModal">Inicia sesión aquí</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Fin Modal Register-->
                         </div>
                     </div>
                 </div>
@@ -446,7 +467,8 @@
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
