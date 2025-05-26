@@ -137,13 +137,10 @@
                     <img class="carousel-img" src="img/galletasyvelas.jpeg" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
-<<<<<<< HEAD:fluffy/index.html
                             <h1 class="display-3 text-white mb-md-4">Visualiza nuestra variedad de galletas</h1>
-=======
                             <h4 class="text-white text-uppercase mb-md-3">Nuestras galletas</h4>
                             <h1 class="display-3 text-white mb-md-4">Aquí podrás visualizar nuestra variedad de galletas
                             </h1>
->>>>>>> b6339a90290e463f7d04066a0f0ac28511f4995a:fluffy/index.php
                             <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Mirar más</a>
                         </div>
                     </div>
@@ -152,7 +149,6 @@
                     <img class="carousel-img" src="img/cupcake2.JPG" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
-<<<<<<< HEAD:fluffy/index.html
                             <h1 class="display-3 text-white mb-md-4">Visualiza nuestra variedad de postres</h1>
                             <a href="inventario.html" class="btn btn-primary py-md-3 px-md-5 mt-2">Mirar más</a>
                         </div>
@@ -164,11 +160,9 @@
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h1 class="display-3 text-white mb-md-4">Visualiza nuestra variedad de tortas</h1>
-=======
                             <h4 class="text-white text-uppercase mb-md-3">Nuestros demás postres</h4>
                             <h1 class="display-3 text-white mb-md-4">Aquí podrás visualizar nuestra amplia variedad de
                                 postres</h1>
->>>>>>> b6339a90290e463f7d04066a0f0ac28511f4995a:fluffy/index.php
                             <a href="inventario.html" class="btn btn-primary py-md-3 px-md-5 mt-2">Mirar más</a>
                         </div>
                     </div>
@@ -189,8 +183,6 @@
     <!-- Carousel End -->
 
 
-<<<<<<< HEAD:fluffy/index.html
-=======
     <!-- About Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
@@ -225,31 +217,24 @@
         </div>
     </div>
 
->>>>>>> b6339a90290e463f7d04066a0f0ac28511f4995a:fluffy/index.php
     <div class="container-fluid my-5 py-5 px-0">
         <div class="row bg-primary m-0">
             <div class="col-md-6 px-0" style="min-height: 500px;">
                 <div class="position-relative h-100">
-<<<<<<< HEAD:fluffy/index.html
                     <img class="position-absolute w-100 h-100" src="img/galletapiedelimon1.jpeg" style="object-fit: cover;">
-=======
                     <img class="position-absolute w-100 h-100" src="img/galletachocolate1.jpeg"
                         style="object-fit: cover;">
->>>>>>> b6339a90290e463f7d04066a0f0ac28511f4995a:fluffy/index.php
                 </div>
             </div>
             <div class="col-md-6 py-5 py-md-0 px-0">
                 <div class="h-100 d-flex flex-column align-items-center justify-content-center text-center p-5">
-<<<<<<< HEAD:fluffy/index.html
                     <h3 class="font-weight-bold text-white mt-1 mb-4">NUESTRO PRODUCTO ESTRELLA</h3>
                    <p class="text-white mb-4 fs-4">Nuestra galleta pie de limón es una explosión de sabor y frescura. </p>
                    <p class="text-white mb-4 fs-4">¡Prueba una hoy y descubre por qué es nuestra favorita! </p> 
-=======
                     <h3 class="font-weight-bold text-white mt-3 mb-4">Galleta Chococruji</h3>
                     <p class="text-white mb-4">Galleta rellena de chocolante crujiente, se siente una gran sensación de
                         dulzura en el paladar</p>
                     <a href="" class="btn btn-secondary py-3 px-5 mt-2">Orden ya</a>
->>>>>>> b6339a90290e463f7d04066a0f0ac28511f4995a:fluffy/index.php
                 </div>
             </div>
         </div>
@@ -272,9 +257,7 @@
         </div>
     </div>
     <!-- Video Modal End -->
-<<<<<<< HEAD:fluffy/index.html
    
-=======
 
 
     <!-- Services Start -->
@@ -359,7 +342,6 @@
     </div>
     </div>
     <!-- Products End -->
->>>>>>> b6339a90290e463f7d04066a0f0ac28511f4995a:fluffy/index.php
 
 
     <!-- Team Start -->
@@ -382,13 +364,10 @@
                             <div class="position-relative text-center bg-light rounded px-4 py-5"
                                 style="margin-top: -100px;">
                                 <h3 class="font-weight-bold mt-5 mb-3 pt-5">Churro con arequipe</h3>
-<<<<<<< HEAD:fluffy/index.html
                                 <h6 class="text-uppercase text-muted mb-4">Una galleta distintiva por su marcado perfil de sabor a churro, ofreciendo una dulzura envolvente que deleitará el paladar.
                                 </h6>
-=======
                                 <h6 class="text-uppercase text-muted mb-4">Galleta destacada por su gran definido sabor
                                     a churro ¡muy dulce!</h6>
->>>>>>> b6339a90290e463f7d04066a0f0ac28511f4995a:fluffy/index.php
                                 <div class="d-flex justify-content-center pt-1">
                                 </div>
                             </div>
@@ -401,13 +380,10 @@
                             <div class="position-relative text-center bg-light rounded px-4 py-5"
                                 style="margin-top: -100px;">
                                 <h3 class="font-weight-bold mt-5 mb-3 pt-5">Galleta Smore's</h3>
-<<<<<<< HEAD:fluffy/index.html
                                 <h6 class="text-uppercase text-muted mb-4">Una galleta irresistible, cubierta con una generosa porción de chocolate amargo y suaves malvaviscos, creando un equilibrio delicioso entre dulzura y profundidad de sabor.
                                      </h6>
-=======
                                 <h6 class="text-uppercase text-muted mb-4">Galleta con chocolate amargo encima y
                                     masmelos </h6>
->>>>>>> b6339a90290e463f7d04066a0f0ac28511f4995a:fluffy/index.php
                                 <div class="d-flex justify-content-center pt-1">
                                 </div>
                             </div>
@@ -420,13 +396,10 @@
                             <div class="position-relative text-center bg-light rounded px-4 py-5"
                                 style="margin-top: -100px;">
                                 <h3 class="font-weight-bold mt-5 mb-3 pt-5">Galleta Snicker</h3>
-<<<<<<< HEAD:fluffy/index.html
                                 <h6 class="text-uppercase text-muted mb-4">Una galleta exquisita, realzada con un suave baño de arequipe y la adición de trozos del clásico Snickers, que aportan una deliciosa combinación de texturas y sabores a cada mordisco.
                              </h6>
-=======
                                 <h6 class="text-uppercase text-muted mb-4">Galleta con arequipe encima y trozos de
                                     snicker</h6>
->>>>>>> b6339a90290e463f7d04066a0f0ac28511f4995a:fluffy/index.php
                                 <div class="d-flex justify-content-center pt-1">
                                 </div>
                             </div>
@@ -439,13 +412,10 @@
                             <div class="position-relative text-center bg-light rounded px-4 py-5"
                                 style="margin-top: -100px;">
                                 <h3 class="font-weight-bold mt-5 mb-3 pt-5">Galleta Cumple</h3>
-<<<<<<< HEAD:fluffy/index.html
                                 <h6 class="text-uppercase text-muted mb-4">Una galleta encantadora, realzada con un cremoso glaseado de vainilla y vibrantes chispas de colores, perfecta para añadir un toque de dulzura y diversión a cualquier momento.
                              </h6>
-=======
                                 <h6 class="text-uppercase text-muted mb-4">Galleta con un glaceado de vainilla y chispas
                                     de colores</h6>
->>>>>>> b6339a90290e463f7d04066a0f0ac28511f4995a:fluffy/index.php
                                 <div class="d-flex justify-content-center pt-1">
                                 </div>
                             </div>
@@ -471,11 +441,8 @@
                     <div class="owl-carousel testimonial-carousel">
                         <div class="text-center">
                             <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-<<<<<<< HEAD:fluffy/index.html
-=======
                             <h4 class="font-weight-light mb-4">Cada mordisco es un viaje al reino de los sabores. ¿Te
                                 unes a la aventura?</h4>
->>>>>>> b6339a90290e463f7d04066a0f0ac28511f4995a:fluffy/index.php
                             <img class="img-fluid mx-auto mb-3" src="img/browniedorado1.jpeg" alt="">
                             <h5 class="font-weight-bold m-0">Brownies</h5>
                         </div>
@@ -486,15 +453,12 @@
                         </div>
                         <div class="text-center">
                             <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-<<<<<<< HEAD:fluffy/index.html
                             <img class="img-fluid mx-auto mb-3" src="img/galletahbd1.jpeg " alt="">
                             <h5 class="font-weight-bold m-0">Galletas</h5>
-=======
                             <h4 class="font-weight-light mb-4">¡No hay que pensar dos veces para tardear con las
                                 galletas fluffy!</h4>
                             <img class="img-fluid mx-auto mb-3" src="img/galletachocolateempaque1.jpeg" alt="">
                             <h5 class="font-weight-bold m-0">Cajitas</h5>
->>>>>>> b6339a90290e463f7d04066a0f0ac28511f4995a:fluffy/index.php
                         </div>
                     </div>
                 </div>
@@ -529,8 +493,8 @@
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
