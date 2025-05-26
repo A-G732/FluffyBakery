@@ -23,9 +23,10 @@ $border-radius: 5px;
 
 /********** Custom CSS ************/
 
+
 .carousel-img {
     width: 100%;
-    height: 600px; 
+    height: 900px; 
     object-fit: cover;
     object-position: center;
 }
@@ -129,13 +130,13 @@ h6,
     bottom: 0;
     background: rgba(0, 0, 0, .3);
     z-index: 1;
-}
+    }
 
 .page-header {
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/galletasyvelas.jpeg), no-repeat center center;
     background-size: cover;
     width: 100%;
-    height: 480px; 
+    height: 100px; 
     object-fit: cover;
     object-position: center;
 }
