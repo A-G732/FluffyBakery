@@ -202,12 +202,12 @@
                                         Bajo Stock
                                     </span>
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    <button class="text-blue-600 hover:text-blue-900 mr-3">
-                                        <i class="fas fa-edit"></i>
+                               <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    <button class="bg-blue-100 text-blue-600 hover:bg-blue-200 px-3 py-1 rounded-md mr-2">
+                                        <i class="fas fa-edit mr-1"></i> Editar
                                     </button>
-                                    <button class="text-red-600 hover:text-red-900">
-                                        <i class="fas fa-trash"></i>
+                                    <button class="bg-red-100 text-red-600 hover:bg-red-200 px-3 py-1 rounded-md">
+                                        <i class="fas fa-trash mr-1"></i> Eliminar
                                     </button>
                                 </td>
                             </tr>
@@ -234,11 +234,11 @@
                                     </span>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    <button class="text-blue-600 hover:text-blue-900 mr-3">
-                                        <i class="fas fa-edit"></i>
+                                    <button class="bg-blue-100 text-blue-600 hover:bg-blue-200 px-3 py-1 rounded-md mr-2">
+                                        <i class="fas fa-edit mr-1"></i> Editar
                                     </button>
-                                    <button class="text-red-600 hover:text-red-900">
-                                        <i class="fas fa-trash"></i>
+                                    <button class="bg-red-100 text-red-600 hover:bg-red-200 px-3 py-1 rounded-md">
+                                        <i class="fas fa-trash mr-1"></i> Eliminar
                                     </button>
                                 </td>
                             </tr>
