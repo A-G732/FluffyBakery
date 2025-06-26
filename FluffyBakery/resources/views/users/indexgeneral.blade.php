@@ -8,6 +8,45 @@
     <title>Fluffy Bakery</title>
 </head>
 <body>
+<<<<<<< HEAD
     
+=======
+    <div class="flex bg-pink-300 h-20 items-center">
+        <div class="">
+            <div class="flex justify-between space-x-2">
+                <div class="">
+                    <div class="text-lg text-white font-semibold">
+                        <a class="" href="">Ayuda</a>
+                        <span class="">|</span>
+                        <a class="" href="">Soporte</a>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="text-white">
+                        <a class="" href="https://www.instagram.com/fluffybakeryshop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a class="" href="">
+                            <i class="fas fa-user"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <!-- Carrousel -->
+
+    <!-- Fin Carrousel -->
+
+    <!-- Producto destacado  -->
+    <!-- Fin producto destacado -->
+
+    <!-- Reseña de quienes somos -->
+    <!-- Fin de reseña -->
+
+    <!-- Footer -->
+    <!-- Fin de foooter -->
+>>>>>>> d1e5d00a49d37f294f248b9270b417487e0177f1
 </body>
 </html>
