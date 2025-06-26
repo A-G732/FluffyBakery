@@ -8,6 +8,9 @@
     <title>Fluffy Bakery</title>
 </head>
 <body>
+    <!--Navbar-->
+    @include('layouts.navbar')
+    <!--Fin Navbar-->
 
     <!-- Carrousel -->
 
