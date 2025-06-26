@@ -3,29 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Fluffy Bakery</title>
 </head>
 <body>
-    <div class="container-fluid bg-primary py-3 d-none d-md-block">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-lg-left mb-2 mb-lg-0">
-                    <div class="d-inline-flex align-items-center">
-                        <span class="text-white">|</span>
-                        <a class="text-white px-3" href="">Ayuda</a>
-                        <span class="text-white">|</span>
-                        <a class="text-white pl-3" href="">Soporte</a>
+    <div class="flex bg-pink-300 h-20 items-center">
+        <div class="">
+            <div class="flex justify-between space-x-2">
+                <div class="">
+                    <div class="text-lg text-white font-semibold">
+                        <a class="" href="">Ayuda</a>
+                        <span class="">|</span>
+                        <a class="" href="">Soporte</a>
                     </div>
                 </div>
-                <div class="col-md-6 text-center text-lg-right">
-                    <div class="d-inline-flex align-items-center">
-
-                        <a class="text-white px-3" href="https://www.instagram.com/fluffybakeryshop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+                <div class="">
+                    <div class="text-white">
+                        <a class="" href="https://www.instagram.com/fluffybakeryshop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a class="text-white px-3" href="formulario_login.html">
+                        <a class="" href="">
                             <i class="fas fa-user"></i>
-                        </a>
                         </a>
                     </div>
                 </div>
