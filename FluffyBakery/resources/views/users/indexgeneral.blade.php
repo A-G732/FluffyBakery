@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container-fluid bg-primary py-3 d-none d-md-block">
+    <!-- <div class="container-fluid bg-primary py-3 d-none d-md-block">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-center text-lg-left mb-2 mb-lg-0">
@@ -31,6 +31,19 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+
+    <!-- Carrousel -->
+        
+    <!-- Fin Carrousel -->
+
+    <!-- Producto destacado  -->
+    <!-- Fin producto destacado -->
+
+    <!-- Reseña de quienes somos -->
+    <!-- Fin de reseña -->
+
+    <!-- Footer -->
+    <!-- Fin de foooter -->
 </body>
 </html>
