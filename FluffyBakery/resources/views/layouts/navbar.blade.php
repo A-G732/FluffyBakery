@@ -58,7 +58,7 @@
 
 
 <!-- Topbar Start -->
-    <div class="bg-primary py-3 hidden md:block">
+    <div class="bg-pink-300 py-3 hidden md:block">
         <div class="container mx-auto px-4">
             <div class="flex justify-center lg:justify-end">
                 <div class="flex items-center space-x-4">
@@ -66,8 +66,8 @@
                         <i class="fab fa-instagram text-xl"></i>
                     </a>
                     <div class="relative group">
-                        <a href="form_login.html" class="inline-block bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-pink-200 transition-colors btn-hover">Inicia Sesión</a>
-                        <a href="form_registro.html" class="inline-block bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-pink-200 transition-colors btn-hover">Regístrate</a>
+                        <a href="#" class="inline-block bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-pink-200 transition-colors btn-hover">Inicia Sesión</a>
+                        <a href="#" class="inline-block bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-pink-200 transition-colors btn-hover">Regístrate</a>
                     </div>
                 </div>
             </div>
