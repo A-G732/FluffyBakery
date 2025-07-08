@@ -65,10 +65,21 @@
                     <a class="text-white px-3 hover:text-blue-100 transition-colors" href="https://www.instagram.com/fluffybakeryshop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
                         <i class="fab fa-instagram text-xl"></i>
                     </a>
-                    <div class="relative group">
-                        <a href="#" class="inline-block bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-pink-200 transition-colors btn-hover">Inicia Sesión</a>
-                        <a href="#" class="inline-block bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-pink-200 transition-colors btn-hover">Regístrate</a>
-                    </div>
+                    <div class="relative inline-block text-left">
+            <div>
+                <button type="button" class="text-white px-3 hover:text-blue-100 transition-colors" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                <i class="fas fa-user"></i>
+                </button>
+            </div>
+            <div class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                <div class="py-1" role="none">
+                <!-- Active: "bg-gray-100 text-gray-900 outline-hidden", Not Active: "text-gray-700" -->
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-0">Inicia Sesión</a>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-1">Regístrate</a>
+                </div>
+            </div>
+            </div>
+
                 </div>
             </div>
         </div>
