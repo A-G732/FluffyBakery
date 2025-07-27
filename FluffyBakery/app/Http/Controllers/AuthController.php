@@ -15,4 +15,12 @@ class AuthController extends Controller
         return view('users/index');
     }
 
+    public function login(){
+        return view('auth.login');
+    }
+
+    public function register(){
+        return view('auth.register');
+    }
+
 }
