@@ -16,11 +16,11 @@ class AuthController extends Controller
     }
 
     public function login(){
-        return view('auth.login');
+        return view('modules.auth.formLogin');
     }
 
     public function register(){
-        return view('auth.register');
+        return view('modules.auth.formRegister');
     }
 
 }
