@@ -47,7 +47,7 @@
                                 <label for="password" class="block text-gray-700">Contraseña</label>
                                 <input type="password" name="password" id="password" required class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300">
                             </div>
-                            <button type="submit" class="w-full bg-pink-400 text-white py-2 rounded hover:bg-pink-500">Entrar</button>
+                            <button type="submit" class="w-full bg-pink-400 text-white py-2 rounded hover:bg-pink-500 cursor-pointer">Entrar</button>
                         </form>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                                 <label for="password_confirmation" class="block text-gray-700">Confirmar Contraseña</label>
                                 <input type="password" name="password_confirmation" id="password_confirmation" required class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300">
                             </div>
-                            <button type="submit" class="w-full bg-pink-400 text-white py-2 rounded hover:bg-pink-500">Registrarse</button>
+                            <button type="submit" class="w-full bg-pink-400 text-white py-2 rounded hover:bg-pink-500 cursor-pointer">Registrarse</button>
                         </form>
                     </div>
                 </div>

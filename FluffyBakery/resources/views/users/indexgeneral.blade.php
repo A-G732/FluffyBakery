@@ -79,6 +79,7 @@
     <!-- Fin de reseña -->
 
     <!-- Footer -->
+     @include('layouts.footer')
     <!-- Fin de foooter -->
 </body>
 </html>
