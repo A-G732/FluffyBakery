@@ -37,7 +37,7 @@
                         <button onclick="toggleModal('loginModal')" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-3xl font-bold cursor-pointer">&times;</button>
 
                         <h2 class="text-2xl font-bold mb-4 text-center">Iniciar Sesión</h2>
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="#">
                             @csrf
                             <div class="mb-4">
                                 <label for="email" class="block text-gray-700">Correo electrónico</label>
@@ -59,29 +59,54 @@
                         <button onclick="toggleModal('registerModal')" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-xl font-bold cursor-pointer">&times;</button>
 
                         <h2 class="text-2xl font-bold mb-4 text-center">Registro</h2>
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('register.store') }}">
                             @csrf
                             <div class="mb-4">
                                 <label for="name" class="block text-gray-700">Nombre</label>
-                                <input type="text" name="name" id="name" required class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300">
+                                <input type="text" name="name" id="name" value="{{ old('name') }}" required class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300">
+                                @error('name')
+                                <small class="text-red-500 text-sm">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="mb-4">
                                 <label for="email" class="block text-gray-700">Correo electrónico</label>
-                                <input type="email" name="email" id="email" required class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300">
+                                <input type="email" name="email" id="email" value="{{ old('email') }}" required class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300">
+                                @error('email')
+                                <small class="text-red-500 text-sm">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="mb-4">
                                 <label for="password" class="block text-gray-700">Contraseña</label>
                                 <input type="password" name="password" id="password" required class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300">
+                                @error('password')
+                                <small class="text-red-500 text-sm">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="mb-4">
                                 <label for="password_confirmation" class="block text-gray-700">Confirmar Contraseña</label>
                                 <input type="password" name="password_confirmation" id="password_confirmation" required class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300">
+                                @error('password_confirmation')
+                                <small class="text-red-500 text-sm">{{ $message }}</small>
+                                @enderror
                             </div>
-                            <button type="submit" class="w-full bg-pink-400 text-white py-2 rounded hover:bg-pink-500 cursor-pointer">Registrarse</button>
+                            <button type="submit" class="w-full bg-pink-400 text-white py-2 rounded hover:bg-pink-500 cursor-pointer">Regístrate</button>
+                            @if(session('success'))
+                            <div class="mt-3 bg-green-100 text-green-700 px-4 py-2 rounded">
+                                {{ session('success') }}
+                            </div>
+                            @endif
                         </form>
                     </div>
                 </div>
                 <!-- Fin modal register -->
+                @if ($errors->any())
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        document.getElementById('registerModal').classList.remove('hidden');
+                    });
+                </script>
+                @endif
+
 
             </div>
         </div>
