@@ -4,21 +4,110 @@
         <div class="flex justify-between items-center py-3">
             <!-- Ayuda | Soporte -->
             <div class="flex items-center space-x-4">
-                <a class="text-white px-2 hover:text-blue-100 transition-colors" href="#">Ayuda</a>
+                <a class="text-white px-2" href="#">Ayuda</a>
                 <span class="text-white">|</span>
-                <a class="text-white px-2 hover:text-blue-100 transition-colors" href="#">Soporte</a>
+                <a class="text-white px-2" href="#">Soporte</a>
             </div>
 
             <!-- Instagram and User -->
             <div class="flex items-center space-x-4">
                 <!-- Instagram -->
-                <a class="text-white px-3 hover:text-blue-100 transition-colors"
-                   href="https://www.instagram.com/fluffybakeryshop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                   target="_blank">
+                <a class="text-white px-3"
+                    href="https://www.instagram.com/fluffybakeryshop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                    target="_blank">
                     <i class="fab fa-instagram text-xl"></i>
                 </a>
                 <!-- User Dropdown -->
-                 
+                <div class="relative inline-block text-left">
+                    <!-- Botón -->
+                    <button id="userDropdownButton" onclick="toggleDropdown()" class="text-white px-3 cursor-pointer">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <!-- Menú -->
+                    <div id="userDropdownMenu" class="absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg hidden z-50">
+                        <button onclick="openModal('loginModal')" class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer">Iniciar Sesión</button>
+                        <button onclick="openModal('registerModal')" class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer">Regístrate</button>
+                    </div>
+                </div>
+                <!-- Fin dropdown -->
+                <!-- Modal login -->
+                <div id="loginModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 hidden">
+                    <div class="bg-white w-full max-w-md p-6 rounded-lg relative">
+                        <!-- Botón cerrar (X) -->
+                        <button onclick="toggleModal('loginModal')" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-3xl font-bold cursor-pointer">&times;</button>
+
+                        <h2 class="text-2xl font-bold mb-4 text-center">Iniciar Sesión</h2>
+                        <form method="POST" action="#">
+                            @csrf
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700">Correo electrónico</label>
+                                <input type="email" name="email" id="email" required class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300">
+                            </div>
+                            <div class="mb-4">
+                                <label for="password" class="block text-gray-700">Contraseña</label>
+                                <input type="password" name="password" id="password" required class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300">
+                            </div>
+                            <button type="submit" class="w-full bg-pink-400 text-white py-2 rounded hover:bg-pink-500 cursor-pointer">Entrar</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- Fin modal login -->
+                <!-- modal register -->
+                <div id="registerModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 hidden">
+                    <div class="bg-white w-full max-w-md p-6 rounded-lg relative">
+                        <!-- Botón cerrar (X) -->
+                        <button onclick="toggleModal('registerModal')" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-xl font-bold cursor-pointer">&times;</button>
+
+                        <h2 class="text-2xl font-bold mb-4 text-center">Registro</h2>
+                        <form method="POST" action="{{ route('register.store') }}">
+                            @csrf
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700">Nombre</label>
+                                <input type="text" name="name" id="name" value="{{ old('name') }}" required class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300">
+                                @error('name')
+                                <small class="text-red-500 text-sm">{{ $message }}</small>
+                                @enderror
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700">Correo electrónico</label>
+                                <input type="email" name="email" id="email" value="{{ old('email') }}" required class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300">
+                                @error('email')
+                                <small class="text-red-500 text-sm">{{ $message }}</small>
+                                @enderror
+                            </div>
+                            <div class="mb-4">
+                                <label for="password" class="block text-gray-700">Contraseña</label>
+                                <input type="password" name="password" id="password" required class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300">
+                                @error('password')
+                                <small class="text-red-500 text-sm">{{ $message }}</small>
+                                @enderror
+                            </div>
+                            <div class="mb-4">
+                                <label for="password_confirmation" class="block text-gray-700">Confirmar Contraseña</label>
+                                <input type="password" name="password_confirmation" id="password_confirmation" required class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300">
+                                @error('password_confirmation')
+                                <small class="text-red-500 text-sm">{{ $message }}</small>
+                                @enderror
+                            </div>
+                            <button type="submit" class="w-full bg-pink-400 text-white py-2 rounded hover:bg-pink-500 cursor-pointer">Regístrate</button>
+                            @if(session('success'))
+                            <div class="mt-3 bg-green-100 text-green-700 px-4 py-2 rounded">
+                                {{ session('success') }}
+                            </div>
+                            @endif
+                        </form>
+                    </div>
+                </div>
+                <!-- Fin modal register -->
+                @if ($errors->any())
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        document.getElementById('registerModal').classList.remove('hidden');
+                    });
+                </script>
+                @endif
+
+
             </div>
         </div>
     </div>
@@ -64,4 +153,34 @@
         </div>
     </div>
 </nav>
+
+<script>
+    function toggleDropdown() {
+        const dropdown = document.getElementById('userDropdownMenu');
+        dropdown.classList.toggle('hidden');
+    }
+
+    // Cerrar si se hace clic fuera del dropdown
+    window.addEventListener('click', function(e) {
+        const button = document.getElementById('userDropdownButton');
+        const menu = document.getElementById('userDropdownMenu');
+        if (!button.contains(e.target) && !menu.contains(e.target)) {
+            menu.classList.add('hidden');
+        }
+    });
+
+    function openModal(id) {
+        document.getElementById(id).classList.remove('hidden');
+    }
+
+    function closeModal(id) {
+        document.getElementById(id).classList.add('hidden');
+    }
+
+    function toggleModal(id) {
+        const modal = document.getElementById(id);
+        modal.classList.toggle('hidden');
+    }
+</script>
+
 <!-- Navbar End -->

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +20,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('users/indexgeneral');
 });
+
+Route::post('/', [AuthController::class, 'store'])->name('register.store');
+Route::get('/indexgeneral', [AuthController::class, 'indexgeneral'])->name('indexgeneral');
