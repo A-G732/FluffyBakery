@@ -59,7 +59,11 @@ class AuthController extends Controller
     {
         $request->validate([
             'email' => 'required|email',
-            'password' => 'required|string|min:6'
+            'password' => ['required']
+        ],[
+            'email.required' => 'El correo electrónico es obligatorio.',
+            'email.email' => 'Este formato no es válido.',
+            'password.required' => 'La contraseña es obligatoria.',
         ]);
         $credenciales = [
             'email' => $request->email,
@@ -67,7 +71,7 @@ class AuthController extends Controller
         ];
 
         if (Auth::attempt($credenciales)) {
-            return to_route('productos.index');
+            return to_route('indexgeneral')->with('success', '¡Inicio de sesión exitoso!');
         } else {
             return to_route('login');
         }
