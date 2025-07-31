@@ -128,8 +128,6 @@
                     });
                 </script>
                 @endif
-
-
             </div>
         </div>
     </div>
@@ -148,12 +146,12 @@
 
             <!-- Left Navigation (hidden on mobile) -->
             <div class="hidden md:flex space-x-8">
-                <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium">Inicio</a>
+                <a href="{{ route('/indexgeneral') }}" class="text-gray-700 hover:text-primary transition-colors font-medium">Inicio</a>
                 <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium">Productos</a>
             </div>
 
             <!-- Logo -->
-            <a href="#" class="text-4xl font-bold text-primary hover:scale-105 transition-transform">
+            <a href="{{ route('indexgeneral') }}" class="text-4xl font-bold text-primary hover:scale-105 transition-transform">
                 FLUFFY
             </a>
 
@@ -167,7 +165,7 @@
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="md:hidden hidden pb-4">
             <div class="flex flex-col space-y-2">
-                <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium py-2">Inicio</a>
+                <a href="{{ route('indexgeneral') }}" class="text-gray-700 hover:text-primary transition-colors font-medium py-2">Inicio</a>
                 <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium py-2">Productos</a>
                 <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium py-2">¿Quiénes Somos?</a>
                 <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium py-2">Contáctanos</a>
