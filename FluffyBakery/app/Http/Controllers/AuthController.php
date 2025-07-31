@@ -43,6 +43,7 @@ class AuthController extends Controller
         $users->name = $request->name;
         $users->email = $request->email;
         $users->password = Hash::make($request->password);
+        $users->role = 'cliente'; // rol por defecto
         $users->save();
 
         $registers = new Register();
@@ -60,7 +61,7 @@ class AuthController extends Controller
         $request->validate([
             'email' => 'required|email',
             'password' => ['required']
-        ],[
+        ], [
             'email.required' => 'El correo electrónico es obligatorio.',
             'email.email' => 'Este formato no es válido.',
             'password.required' => 'La contraseña es obligatoria.',
@@ -71,9 +72,16 @@ class AuthController extends Controller
         ];
 
         if (Auth::attempt($credenciales)) {
-            return to_route('indexgeneral')->with('success', '¡Inicio de sesión exitoso!');
+            $users = Auth::user();
+
+            // Verificar el rol del usuario y redirigir a la ruta correspondiente
+            if ($users->role === 'admin') {
+                return redirect()->route('admin.index')->with('success', '¡Inicio de sesión exitoso!'); // Ruta de admin
+            } else if ($users->role === 'client') {
+                return redirect()->route('users/indexgeneral')->with('success', '¡Inicio de sesión exitoso!'); // Ruta de cliente
+            }
         } else {
-            return to_route('login');
+            return back()->withErrors(['login' => 'Correo o contraseña incorrectos.'])->withInput();
         }
     }
 }
