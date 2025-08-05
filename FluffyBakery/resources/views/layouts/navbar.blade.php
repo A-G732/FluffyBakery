@@ -146,7 +146,7 @@
 
             <!-- Left Navigation (hidden on mobile) -->
             <div class="hidden md:flex space-x-8">
-                <a href="{{ route('/indexgeneral') }}" class="text-gray-700 hover:text-primary transition-colors font-medium">Inicio</a>
+                <a href="{{ route('indexgeneral') }}" class="text-gray-700 hover:text-primary transition-colors font-medium">Inicio</a>
                 <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium">Productos</a>
             </div>
 
