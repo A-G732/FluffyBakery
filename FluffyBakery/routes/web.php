@@ -21,5 +21,9 @@ Route::get('/', function () {
     return view('users/indexgeneral');
 });
 
-Route::post('/', [AuthController::class, 'store'])->name('register.store');
+Route::post('/', [AuthController::class, 'store'])->name('store');
 Route::get('/indexgeneral', [AuthController::class, 'indexgeneral'])->name('indexgeneral');
+Route::post('/login', [AuthController::class, 'loguear'])->name('loguear');
+Route::get('/admin', function () {
+    return view('admin.index');
+})->name('admin.index')->middleware('auth');

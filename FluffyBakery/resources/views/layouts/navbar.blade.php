@@ -37,21 +37,43 @@
                         <button onclick="toggleModal('loginModal')" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-3xl font-bold cursor-pointer">&times;</button>
 
                         <h2 class="text-2xl font-bold mb-4 text-center">Iniciar Sesión</h2>
-                        <form method="POST" action="#">
+                        <form method="POST" action="{{ route('loguear') }}">
                             @csrf
                             <div class="mb-4">
                                 <label for="email" class="block text-gray-700">Correo electrónico</label>
                                 <input type="email" name="email" id="email" required class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300">
+                                @error('email')
+                                <small class="text-red-500 text-sm">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="mb-4">
                                 <label for="password" class="block text-gray-700">Contraseña</label>
                                 <input type="password" name="password" id="password" required class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300">
+                                @error('password')
+                                <small class="text-red-500 text-sm">{{ $message }}</small>
+                                @enderror
                             </div>
+                            @if ($errors->has('login'))
+                            <div class="bg-red-100 text-red-700 px-4 py-2 rounded relative mt-2 mb-2" role="alert">
+                                <span class="block sm:inline">{{ $errors->first('login') }}</span>
+                            </div>
+                            @endif
                             <button type="submit" class="w-full bg-pink-400 text-white py-2 rounded hover:bg-pink-500 cursor-pointer">Entrar</button>
                         </form>
                     </div>
                 </div>
                 <!-- Fin modal login -->
+                @if ($errors->has('login'))
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const modal = document.getElementById('loginModal');
+                        if (modal) {
+                            modal.classList.remove('hidden');
+                            modal.classList.add('flex');
+                        }
+                    });
+                </script>
+                @endif
                 <!-- modal register -->
                 <div id="registerModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 hidden">
                     <div class="bg-white w-full max-w-md p-6 rounded-lg relative">
@@ -59,7 +81,7 @@
                         <button onclick="toggleModal('registerModal')" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-xl font-bold cursor-pointer">&times;</button>
 
                         <h2 class="text-2xl font-bold mb-4 text-center">Registro</h2>
-                        <form method="POST" action="{{ route('register.store') }}">
+                        <form method="POST" action="{{ route('store') }}">
                             @csrf
                             <div class="mb-4">
                                 <label for="name" class="block text-gray-700">Nombre</label>
@@ -99,15 +121,13 @@
                     </div>
                 </div>
                 <!-- Fin modal register -->
-                @if ($errors->any())
+                @if ($errors->any() && !$errors->has('login'))
                 <script>
                     document.addEventListener('DOMContentLoaded', function() {
                         document.getElementById('registerModal').classList.remove('hidden');
                     });
                 </script>
                 @endif
-
-
             </div>
         </div>
     </div>
@@ -126,12 +146,12 @@
 
             <!-- Left Navigation (hidden on mobile) -->
             <div class="hidden md:flex space-x-8">
-                <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium">Inicio</a>
+                <a href="{{ route('indexgeneral') }}" class="text-gray-700 hover:text-primary transition-colors font-medium">Inicio</a>
                 <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium">Productos</a>
             </div>
 
             <!-- Logo -->
-            <a href="#" class="text-4xl font-bold text-primary hover:scale-105 transition-transform">
+            <a href="{{ route('indexgeneral') }}" class="text-4xl font-bold text-primary hover:scale-105 transition-transform">
                 FLUFFY
             </a>
 
@@ -145,7 +165,7 @@
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="md:hidden hidden pb-4">
             <div class="flex flex-col space-y-2">
-                <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium py-2">Inicio</a>
+                <a href="{{ route('indexgeneral') }}" class="text-gray-700 hover:text-primary transition-colors font-medium py-2">Inicio</a>
                 <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium py-2">Productos</a>
                 <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium py-2">¿Quiénes Somos?</a>
                 <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium py-2">Contáctanos</a>
