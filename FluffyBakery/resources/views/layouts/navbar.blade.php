@@ -158,7 +158,7 @@
             <!-- Right Navigation (hidden on mobile) -->
             <div class="hidden md:flex space-x-8">
                 <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium">¿Quiénes Somos?</a>
-                <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium">Contáctanos</a>
+                <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium">Contáctenos</a>
             </div>
         </div>
 
@@ -168,7 +168,7 @@
                 <a href="{{ route('indexgeneral') }}" class="text-gray-700 hover:text-primary transition-colors font-medium py-2">Inicio</a>
                 <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium py-2">Productos</a>
                 <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium py-2">¿Quiénes Somos?</a>
-                <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium py-2">Contáctanos</a>
+                <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium py-2">Contáctenos</a>
             </div>
         </div>
     </div>
