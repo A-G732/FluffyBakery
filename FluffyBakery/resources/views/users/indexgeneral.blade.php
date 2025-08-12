@@ -19,15 +19,15 @@
             <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                 <!-- Item 1 -->
                 <div class="duration-700 ease-in-out" data-carousel-item>
-                    <img src="/img/galletasyvelas.jpeg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <img src="{{ asset('storage/img/galletasyvelas.jpeg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
                 <!-- Item 2 -->
                 <div class="duration-700 ease-in-out" data-carousel-item>
-                    <img src="/img/galletachocolate1.jpeg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <img src="{{ asset('storage/img/galletachocolate1.jpeg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
                 <!-- Item 3 -->
                 <div class="duration-700 ease-in-out" data-carousel-item>
-                    <img src="/img/galletaarequipe1.jpeg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <img src="{{ asset('storage/img/galletaarequipe1.jpeg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
                 <!-- Item 4 -->
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
@@ -70,12 +70,62 @@
     <!-- Fin Carrousel -->
 
     <!-- Producto destacado  -->
+        <section class="py-16 bg-gray-100 text-center">
+            <h2 class="text-3xl font-bold mb-6">Producto Destacado</h2>
+            <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8">
+                <img src="{{ asset('storage/img/galletapiedelimon1.jpeg') }}" alt="Producto Destacado" class="mx-auto w-64 h-64 object-cover rounded">
+                <h3 class="text-xl font-semibold mt-4">Galleta Pie de limón</h3>
+                <p class="mt-2 text-gray-600">La favorita de la casa que siempre está en nuestro top 1, nuestra galelta pie de limón.</p>
+            </div>
+        </section>
     <!-- Fin producto destacado -->
 
     <!-- Reseña de quienes somos -->
+        <!-- Quiénes Somos -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-6 md:mb-0">
+                    <img src="{{ asset('storage/img/todasgalletasgeneral.jpeg') }}" alt="Quiénes Somos" class="rounded shadow-lg mx-auto w-64 h-64 object-cover rounded">
+                </div>
+                <div class="md:w-1/2 md:pl-10">
+                    <h2 class="text-3xl font-bold mb-4">¿Quiénes Somos?</h2>
+                    <p class="text-gray-700 mb-6">Somos una reposteria que busca esparcir amor y felicidad a nuestros amigos y seres queridos por medio de tortas, galletas y postres que hagan nuestros días distintos.</p>
+                    
+                </div>
+            </div>
+        </section>
+
+
     <!-- Fin de reseña -->
 
     <!-- Footer -->
+        <footer class="bg-pink-300 text-white py-10">
+            <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Redes Sociales -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Síguenos</h3>
+                    <div class="flex space-x-4">
+                       
+                        <a href="https://www.instagram.com/fluffybakeryshop/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D#" class="hover:text-pink-400">Instagram</a>
+                    </div>
+                </div>
+
+                <!-- Contáctanos -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contáctanos</h3>
+                    <form action="#" method="POST" class="space-y-4">
+                        @csrf
+                        <input type="text" name="nombre" placeholder="Tu nombre" class="w-full p-2 rounded bg-white-800 text-black border border-white-700">
+                        <input type="email" name="email" placeholder="Tu correo" class="w-full p-2 rounded bg-white-800 text-black border border-white-700">
+                        <textarea name="mensaje" rows="3" placeholder="Mensaje" class="w-full p-2 rounded bg-white-800 text-black border border-white-700"></textarea>
+                        <button type="submit" class="bg-blue-500 hover:bg--600 text-white px-4 py-2 rounded">Enviar</button>
+                    </form>
+                </div>
+
+                <!-- Info -->
+               
+            </div>
+        </footer>
     <!-- Fin de foooter -->
 </body>
 </html>
