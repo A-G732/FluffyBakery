@@ -27,3 +27,9 @@ Route::post('/login', [AuthController::class, 'loguear'])->name('loguear');
 Route::get('/admin', function () {
     return view('admin.index');
 })->name('admin.index')->middleware('auth');
+
+//verificacion de email
+Auth::routes(['verify' => true]);
+Route::get('/admin', function () {
+    return view('admin.index');
+})->middleware(['auth', 'verified'])->name('indexAdmin');

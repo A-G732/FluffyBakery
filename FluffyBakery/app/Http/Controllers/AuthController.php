@@ -74,6 +74,11 @@ class AuthController extends Controller
         if (Auth::attempt($credenciales)) {
             $users = Auth::user();
 
+            if (!$users->hasVerifiedEmail()) {
+                Auth::logout();
+                return redirect()->route('login')->withErrors(['login' => 'Debes verificar tu correo electrónico.']);
+            }
+
             // Verificar el rol del usuario y redirigir a la ruta correspondiente
             if ($users->role === 'admin') {
                 return redirect()->route('admin.index')->with('success', '¡Inicio de sesión exitoso!'); // Ruta de admin
@@ -85,7 +90,8 @@ class AuthController extends Controller
         }
     }
 
-    public function message(Request $request){
+    public function message(Request $request)
+    {
         $request->validate([
             'firstname' => ['required', 'regex:/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', 'max:30'],
             'lastname' => ['required', 'regex:/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', 'max:30'],

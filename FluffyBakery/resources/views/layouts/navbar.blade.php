@@ -128,6 +128,19 @@
                     });
                 </script>
                 @endif
+
+                @if (Auth::users() && !Auth::users()->hasVerifiedEmail())
+                <div class="bg-yellow-100 text-yellow-800 p-4 rounded mb-4">
+                    Tu correo no ha sido verificado.
+                    <form method="POST" action="{{ route('verification.send') }}">
+                        @csrf
+                        <button type="submit" class="text-blue-500 underline ml-2 cursor-pointer">
+                            Reenviar correo de verificación
+                        </button>
+                    </form>
+                </div>
+                @endif
+
             </div>
         </div>
     </div>
