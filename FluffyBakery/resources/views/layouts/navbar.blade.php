@@ -1,53 +1,219 @@
-<!-- <div class="flex bg-pink-300 h-20 items-center">
-        <div class="">
-            <div class="flex justify-between space-x-2">
-                <div class="">
-                    <div class="text-lg text-white font-semibold">
-                        <a class="" href="">Ayuda</a>
-                        <span class="">|</span>
-                        <a class="" href="">Soporte</a>
+<!-- Topbar Start -->
+<div class="bg-pink-300 hidden md:block">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center py-3">
+            <!-- Ayuda | Soporte -->
+            <div class="flex items-center space-x-4">
+                <a class="text-white px-2" href="#">Ayuda</a>
+                <span class="text-white">|</span>
+                <a class="text-white px-2" href="#">Soporte</a>
+            </div>
+
+            <!-- Instagram and User -->
+            <div class="flex items-center space-x-4">
+                <!-- Instagram -->
+                <a class="text-white px-3"
+                    href="https://www.instagram.com/fluffybakeryshop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                    target="_blank">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <!-- User Dropdown -->
+                <div class="relative inline-block text-left">
+                    <!-- Botón -->
+                    <button id="userDropdownButton" onclick="toggleDropdown()" class="text-white px-3 cursor-pointer">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <!-- Menú -->
+                    <div id="userDropdownMenu" class="absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg hidden z-50">
+                        <button onclick="openModal('loginModal')" class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer">Iniciar Sesión</button>
+                        <button onclick="openModal('registerModal')" class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer">Regístrate</button>
                     </div>
                 </div>
-                <div class="">
-                    <div class="text-white">
-                        <a class="" href="https://www.instagram.com/fluffybakeryshop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a class="" href="">
-                            <i class="fas fa-user"></i>
-                        </a>
+                <!-- Fin dropdown -->
+                <!-- Modal login -->
+                <div id="loginModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 hidden">
+                    <div class="bg-white w-full max-w-md p-6 rounded-lg relative">
+                        <!-- Botón cerrar (X) -->
+                        <button onclick="toggleModal('loginModal')" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-3xl font-bold cursor-pointer">&times;</button>
+
+                        <h2 class="text-2xl font-bold mb-4 text-center">Iniciar Sesión</h2>
+                        <form method="POST" action="{{ route('loguear') }}">
+                            @csrf
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700">Correo electrónico</label>
+                                <input type="email" name="email" id="email" required class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300">
+                                @error('email')
+                                <small class="text-red-500 text-sm">{{ $message }}</small>
+                                @enderror
+                            </div>
+                            <div class="mb-4">
+                                <label for="password" class="block text-gray-700">Contraseña</label>
+                                <input type="password" name="password" id="password" required class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300">
+                                @error('password')
+                                <small class="text-red-500 text-sm">{{ $message }}</small>
+                                @enderror
+                            </div>
+                            @if ($errors->has('login'))
+                            <div class="bg-red-100 text-red-700 px-4 py-2 rounded relative mt-2 mb-2" role="alert">
+                                <span class="block sm:inline">{{ $errors->first('login') }}</span>
+                            </div>
+                            @endif
+                            <button type="submit" class="w-full bg-pink-400 text-white py-2 rounded hover:bg-pink-500 cursor-pointer">Entrar</button>
+                        </form>
                     </div>
                 </div>
+                <!-- Fin modal login -->
+                @if ($errors->has('login'))
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const modal = document.getElementById('loginModal');
+                        if (modal) {
+                            modal.classList.remove('hidden');
+                            modal.classList.add('flex');
+                        }
+                    });
+                </script>
+                @endif
+                <!-- modal register -->
+                <div id="registerModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 hidden">
+                    <div class="bg-white w-full max-w-md p-6 rounded-lg relative">
+                        <!-- Botón cerrar (X) -->
+                        <button onclick="toggleModal('registerModal')" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-xl font-bold cursor-pointer">&times;</button>
+
+                        <h2 class="text-2xl font-bold mb-4 text-center">Registro</h2>
+                        <form method="POST" action="{{ route('store') }}">
+                            @csrf
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700">Nombre</label>
+                                <input type="text" name="name" id="name" value="{{ old('name') }}" required class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300">
+                                @error('name')
+                                <small class="text-red-500 text-sm">{{ $message }}</small>
+                                @enderror
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700">Correo electrónico</label>
+                                <input type="email" name="email" id="email" value="{{ old('email') }}" required class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300">
+                                @error('email')
+                                <small class="text-red-500 text-sm">{{ $message }}</small>
+                                @enderror
+                            </div>
+                            <div class="mb-4">
+                                <label for="password" class="block text-gray-700">Contraseña</label>
+                                <input type="password" name="password" id="password" required class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300">
+                                @error('password')
+                                <small class="text-red-500 text-sm">{{ $message }}</small>
+                                @enderror
+                            </div>
+                            <div class="mb-4">
+                                <label for="password_confirmation" class="block text-gray-700">Confirmar Contraseña</label>
+                                <input type="password" name="password_confirmation" id="password_confirmation" required class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300">
+                                @error('password_confirmation')
+                                <small class="text-red-500 text-sm">{{ $message }}</small>
+                                @enderror
+                            </div>
+                            <button type="submit" class="w-full bg-pink-400 text-white py-2 rounded hover:bg-pink-500 cursor-pointer">Regístrate</button>
+                            @if(session('success'))
+                            <div class="mt-3 bg-green-100 text-green-700 px-4 py-2 rounded">
+                                {{ session('success') }}
+                            </div>
+                            @endif
+                        </form>
+                    </div>
+                </div>
+                <!-- Fin modal register -->
+                @if ($errors->any() && !$errors->has('login'))
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        document.getElementById('registerModal').classList.remove('hidden');
+                    });
+                </script>
+                @endif
+
+                @if (Auth::users() && !Auth::users()->hasVerifiedEmail())
+                <div class="bg-yellow-100 text-yellow-800 p-4 rounded mb-4">
+                    Tu correo no ha sido verificado.
+                    <form method="POST" action="{{ route('verification.send') }}">
+                        @csrf
+                        <button type="submit" class="text-blue-500 underline ml-2 cursor-pointer">
+                            Reenviar correo de verificación
+                        </button>
+                    </form>
+                </div>
+                @endif
+
             </div>
         </div>
-    </div> -->
-
-    
-
-<nav class="bg-pink-300 h-20">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-    <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <img src="{{ asset('storage/img/logo.jpeg') }}" class="h-10" alt="Logo" />
-        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Fluffy Bakery</span>
-    </a>
-    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
-        <span class="sr-only">Open main menu</span>
-        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-        </svg>
-    </button>
-    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-      <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
-        <li>
-          <a href="#" class="block py-2 px-3 text-white bg-pink-500 rounded-sm md:bg-transparent md:text-pink-500 md:p-0 text-white md:text-pink-500 md:p-0 dark:text-white md:dark:hover:text-pink-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Inicio</a>
-        </li>
-        <li>
-          <a href="#" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-500 md:p-0 dark:text-white md:dark:hover:text-pink-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Productos</a>
-        </li>
-        <li>
-          <a href="#" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-500 md:p-0 dark:text-white md:dark:hover:text-pink-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">¿Quiénes somos?</a>
-        </li>
-      </ul>
     </div>
-  </div>
+</div>
+
+<!-- Topbar End -->
+
+<!-- Navbar Start -->
+<nav class="bg-white shadow-lg sticky top-0 z-40">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+            <!-- Mobile menu button -->
+            <button class="md:hidden text-gray-600 hover:text-gray-900" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+
+            <!-- Left Navigation (hidden on mobile) -->
+            <div class="hidden md:flex space-x-8">
+                <a href="{{ route('indexgeneral') }}" class="text-gray-700 hover:text-primary transition-colors font-medium">Inicio</a>
+                <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium">Productos</a>
+            </div>
+
+            <!-- Logo -->
+            <a href="{{ route('indexgeneral') }}" class="text-4xl font-bold text-primary hover:scale-105 transition-transform">
+                FLUFFY
+            </a>
+
+            <!-- Right Navigation (hidden on mobile) -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium">¿Quiénes Somos?</a>
+                <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium">Contáctenos</a>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden pb-4">
+            <div class="flex flex-col space-y-2">
+                <a href="{{ route('indexgeneral') }}" class="text-gray-700 hover:text-primary transition-colors font-medium py-2">Inicio</a>
+                <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium py-2">Productos</a>
+                <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium py-2">¿Quiénes Somos?</a>
+                <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium py-2">Contáctenos</a>
+            </div>
+        </div>
+    </div>
 </nav>
+
+<script>
+    function toggleDropdown() {
+        const dropdown = document.getElementById('userDropdownMenu');
+        dropdown.classList.toggle('hidden');
+    }
+
+    // Cerrar si se hace clic fuera del dropdown
+    window.addEventListener('click', function(e) {
+        const button = document.getElementById('userDropdownButton');
+        const menu = document.getElementById('userDropdownMenu');
+        if (!button.contains(e.target) && !menu.contains(e.target)) {
+            menu.classList.add('hidden');
+        }
+    });
+
+    function openModal(id) {
+        document.getElementById(id).classList.remove('hidden');
+    }
+
+    function closeModal(id) {
+        document.getElementById(id).classList.add('hidden');
+    }
+
+    function toggleModal(id) {
+        const modal = document.getElementById(id);
+        modal.classList.toggle('hidden');
+    }
+</script>
+
+<!-- Navbar End -->

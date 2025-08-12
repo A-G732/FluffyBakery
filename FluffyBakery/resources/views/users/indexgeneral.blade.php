@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ asset ('style.css') }}">
+    <script src="{{ asset('script.js') }}"></script>
+    <link href="{{ asset('storage/img/logo.jpeg') }}" rel="icon">
     <title>Fluffy Bakery</title>
 </head>
 <body>
@@ -19,23 +22,23 @@
             <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                 <!-- Item 1 -->
                 <div class="duration-700 ease-in-out" data-carousel-item>
-                    <img src="{{ asset('storage/img/galletasyvelas.jpeg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <img src="{{ asset('storage//img/galletasyvelas.jpeg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
                 <!-- Item 2 -->
                 <div class="duration-700 ease-in-out" data-carousel-item>
-                    <img src="{{ asset('storage/img/galletachocolate1.jpeg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <img src="{{ asset('storage//img/galletachocolate1.jpeg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
                 <!-- Item 3 -->
                 <div class="duration-700 ease-in-out" data-carousel-item>
-                    <img src="{{ asset('storage/img/galletaarequipe1.jpeg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <img src="{{ asset('storage//img/galletaarequipe1.jpeg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
                 <!-- Item 4 -->
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="/docs/images/carousel/carousel-4.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <img src="#" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
                 <!-- Item 5 -->
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="/docs/images/carousel/carousel-5.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <img src="#" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
             </div>
 
@@ -99,33 +102,7 @@
     <!-- Fin de reseña -->
 
     <!-- Footer -->
-        <footer class="bg-pink-300 text-white py-10">
-            <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Redes Sociales -->
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Síguenos</h3>
-                    <div class="flex space-x-4">
-                       
-                        <a href="https://www.instagram.com/fluffybakeryshop/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D#" class="hover:text-pink-400">Instagram</a>
-                    </div>
-                </div>
-
-                <!-- Contáctanos -->
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Contáctanos</h3>
-                    <form action="#" method="POST" class="space-y-4">
-                        @csrf
-                        <input type="text" name="nombre" placeholder="Tu nombre" class="w-full p-2 rounded bg-white-800 text-black border border-white-700">
-                        <input type="email" name="email" placeholder="Tu correo" class="w-full p-2 rounded bg-white-800 text-black border border-white-700">
-                        <textarea name="mensaje" rows="3" placeholder="Mensaje" class="w-full p-2 rounded bg-white-800 text-black border border-white-700"></textarea>
-                        <button type="submit" class="bg-blue-500 hover:bg--600 text-white px-4 py-2 rounded">Enviar</button>
-                    </form>
-                </div>
-
-                <!-- Info -->
-               
-            </div>
-        </footer>
+     @include('layouts.footer')
     <!-- Fin de foooter -->
 </body>
 </html>
