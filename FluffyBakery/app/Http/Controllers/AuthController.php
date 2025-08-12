@@ -22,7 +22,7 @@ class AuthController extends Controller
         $request->validate([
             'name' => ['required', 'regex:/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', 'max:30'],
             'email' => 'required|email|unique:users,email',
-            'password' => ['required', 'string', 'min:6', 'regex:/[A-Z]/', 'regex:/[a-z]/', 'regex:/[0-9]/', 'regex:/[@$!%*?&]/', 'confirmed'],
+            'password' => ['required', 'string', 'min:6', 'regex:/[A-Z]/', 'regex:/[a-z]/', 'regex:/[0-9]/', 'regex:/[@$!%*?&+]/', 'confirmed'],
             'password_confirmation' => ['required']
         ], [
             'name.required' => 'El nombre es obligatorio.',
@@ -74,6 +74,11 @@ class AuthController extends Controller
         if (Auth::attempt($credenciales)) {
             $users = Auth::user();
 
+            if (!$users->hasVerifiedEmail()) {
+                Auth::logout();
+                return redirect()->route('login')->withErrors(['login' => 'Debes verificar tu correo electrónico.']);
+            }
+
             // Verificar el rol del usuario y redirigir a la ruta correspondiente
             if ($users->role === 'admin') {
                 return redirect()->route('admin.index')->with('success', '¡Inicio de sesión exitoso!'); // Ruta de admin
@@ -83,5 +88,29 @@ class AuthController extends Controller
         } else {
             return back()->withErrors(['login' => 'Correo o contraseña incorrectos.'])->withInput();
         }
+    }
+
+    public function message(Request $request)
+    {
+        $request->validate([
+            'firstname' => ['required', 'regex:/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', 'max:30'],
+            'lastname' => ['required', 'regex:/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', 'max:30'],
+            'email' => ['required', 'email'],
+            'message' => ['required']
+        ], [
+            'firstname.required' => 'El nombre es obligatorio.',
+            'firstname.max' => 'El nombre no puede tener más de 30 caracteres.',
+            'firstname.regex' => 'El nombre solo puede contener letras y espacios.',
+
+            'lastname.required' => 'El nombre es obligatorio.',
+            'lastname.max' => 'El nombre no puede tener más de 30 caracteres.',
+            'lastname.regex' => 'El nombre solo puede contener letras y espacios.',
+
+            'email.required' => 'El correo electrónico es obligatorio.',
+            'email.email' => 'Este formato no es válido.',
+            'email.unique' => 'El correo electrónico ya está en uso.',
+
+            'message.required' => 'El mensaje es obligatorio.',
+        ]);
     }
 }
