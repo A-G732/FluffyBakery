@@ -1,104 +1,112 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="bg-white p-6 rounded-lg shadow">
-    <!-- Header de la tabla -->
-    <div class="flex justify-between items-center mb-4">
-        <h2 class="text-2xl font-bold text-primary">Productos</h2>
-        <a href="{{ route('productos.create') }}"
-           class="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-lg shadow">
-            + Nuevo Producto
-        </a>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+  
+</style>
+
+<div class="bg-white rounded-lg shadow overflow-hidden">
+  <div class="p-4 border-b flex justify-between items-center">
+    <h2 class="text-lg font-semibold text-gray-800">Productos</h2>
+    <a href="{{ route('productos.create') }}" class="px-4 py-2 rounded-lg flex items-center bg-pink-300 text-white py-2 rounded hover:bg-pink-400 cursor-pointer">
+      <i class="fas fa-plus mr-2"></i>
+      Nuevo Producto
+    </a>
+  </div>
+
+  <!-- Categorías -->
+  <div class="p-4 border-b bg-gray-50">
+    <div class="flex flex-wrap gap-2">
+      <a href="{{ route('productos.index', ['category' => 'pasteles']) }}" class="tab-button {{ ($activeCategory ?? request('category','pasteles')) === 'pasteles' ? 'active' : '' }}">
+        <i class="fas fa-birthday-cake mr-2"></i>Pasteles
+      </a>
+      <a href="{{ route('productos.index', ['category' => 'cupcakes']) }}" class="tab-button {{ ($activeCategory ?? request('category')) === 'cupcakes' ? 'active' : '' }}">
+        <i class="fas fa-ice-cream mr-2"></i>Cupcakes
+      </a>
+      <a href="{{ route('productos.index', ['category' => 'galletas']) }}" class="tab-button {{ ($activeCategory ?? request('category')) === 'galletas' ? 'active' : '' }}">
+        <i class="fas fa-cookie-bite mr-2"></i>Galletas
+      </a>
+      <a href="{{ route('productos.index', ['category' => 'rellenos']) }}" class="tab-button {{ ($activeCategory ?? request('category')) === 'rellenos' ? 'active' : '' }}">
+        <i class="fas fa-cheese mr-2"></i>Rellenos
+      </a>
+      <a href="{{ route('productos.index', ['category' => 'brownies']) }}" class="tab-button {{ ($activeCategory ?? request('category')) === 'brownies' ? 'active' : '' }}">
+        <i class="fas fa-square mr-2"></i>Brownies
+      </a>
+      <a href="{{ route('productos.index', ['category' => 'alfajores']) }}" class="tab-button {{ ($activeCategory ?? request('category')) === 'alfajores' ? 'active' : '' }}">
+        <i class="fas fa-cookie mr-2"></i>Alfajores
+      </a>
     </div>
+  </div>
 
-    <!-- Tabla de productos -->
-    <div class="overflow-x-auto">
-        <table class="min-w-full bg-white border border-gray-200 rounded-lg">
-            <thead class="bg-primary-light text-primary-dark">
-                <tr>
-                    <th class="px-3 py-2 border">Imagen</th>
-                    <th class="px-3 py-2 border">Código</th>
-                    <th class="px-3 py-2 border">Categoría</th>
-                    <th class="px-3 py-2 border">Nombre</th>
-                    <th class="px-3 py-2 border">Precio</th>
-                    <th class="px-3 py-2 border">Stock</th>
-                    <th class="px-3 py-2 border">Estado</th>
-                    <th class="px-3 py-2 border">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                @forelse($productos as $producto)
-                <tr class="hover:bg-gray-50 transition">
-                    <!-- Imagen -->
-                    <td class="px-3 py-2 border text-center">
-                        @if($producto->image)
-                            <img src="{{ asset('storage/products/'.$producto->image) }}"
-                                class="h-28 object-cover rounded-lg border-2 border-primary-light">
-                        @else
-                            <span class="text-gray-400 text-sm">Sin imagen</span>
-                        @endif
-                    </td>
-
-                    <!-- Código -->
-                    <td class="px-3 py-2 border text-sm">{{ $producto->product_code }}</td>
-
-                    <!-- Categoría -->
-                    <td class="px-3 py-2 border text-sm">{{ $producto->id_category }}</td>
-
-                    <!-- Nombre -->
-                    <td class="px-3 py-2 border font-semibold">{{ $producto->product_name }}</td>
-
-                    <!-- Precio -->
-                    <td class="px-3 py-2 border">${{ number_format($producto->price, 2) }}</td>
-
-                    <!-- Stock -->
-                    <td class="px-3 py-2 border">{{ $producto->available_unity }}</td>
-
-                    <!-- Estado -->
-                    <td class="px-3 py-2 border text-center">
-                        @if($producto->status)
-                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Activo</span>
-                        @else
-                        <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Inactivo</span>
-                        @endif
-                    </td>
-
-                    <!-- Acciones -->
-                    <td class="px-3 py-2 border text-center">
-                        <div class="flex justify-center space-x-2">
-                            <!-- Botón Editar -->
-                            <a href="{{ route('productos.edit', $producto->product_code) }}"
-                               class="px-3 py-1 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 shadow">
-                                ✏️ Editar
-                            </a>
-
-                            <!-- Botón Eliminar -->
-                            <form action="{{ route('productos.destroy', $producto->product_code) }}" method="POST"
-                                  onsubmit="return confirm('¿Seguro de eliminar este producto?')">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit"
-                                        class="px-3 py-1 bg-red-600 text-white rounded-lg hover:bg-red-700 shadow">
-                                    🗑 Eliminar
-                                </button>
-                            </form>
-                        </div>
-                    </td>
-                </tr>
-                @empty
-                <tr>
-                    <td colspan="8" class="text-center py-6 text-gray-500">
-                        No hay productos registrados.
-                    </td>
-                </tr>
-                @endforelse
-            </tbody>
-        </table>
-    </div>
+  <div class="overflow-x-auto">
+    <table class="min-w-full divide-y divide-gray-200">
+      <thead class="bg-gray-50">
+        <tr>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Imagen</th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre</th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Precio</th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stock</th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estado</th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white h-20 divide-y divide-gray-200">
+        @forelse($productos as $producto)
+        <tr>
+          <td class="px-6 py-4 whitespace-nowrap">
+            @if($producto->image)
+              <img src="{{ asset('storage/products/'.$producto->image) }}" alt="{{ $producto->product_name }}" class="size-20 rounded-full object-cover">
+            @else
+              <span class="text-gray-400 text-sm">Sin imagen</span>
+            @endif
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            <div class="text-sm font-medium text-gray-900">{{ $producto->product_name }}</div>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            <div class="text-sm text-gray-900">${{ number_format($producto->price, 2) }}</div>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            <div class="text-sm text-gray-900">{{ $producto->available_unity }}</div>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            @if($producto->status)
+              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Activo</span>
+            @else
+              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Inactivo</span>
+            @endif
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+            <div class="flex items-center gap-2">
+              <a href="{{ route('productos.edit', $producto->product_code) }}" class="bg-blue-100 text-blue-600 hover:bg-blue-200 px-3 py-1 rounded-md">
+                <i class="fas fa-edit mr-1"></i> Editar
+              </a>
+              <form action="{{ route('productos.destroy', $producto->product_code) }}" method="POST" onsubmit="return confirm('¿Seguro de eliminar este producto?')">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="bg-red-100 text-red-600 hover:bg-red-200 px-3 py-1 rounded-md">
+                  <i class="fas fa-trash mr-1"></i> Eliminar
+                </button>
+              </form>
+            </div>
+          </td>
+        </tr>
+        @empty
+        <tr>
+          <td colspan="6" class="text-center py-6 text-gray-500">No hay productos registrados.</td>
+        </tr>
+        @endforelse
+      </tbody>
+    </table>
 
     <!-- Paginación -->
-    <div class="mt-4">
-        {{ $productos->links() }}
+    <div class="mt-4 px-4 pb-4">
+      {{ $productos->appends(request()->query())->links() }}
     </div>
+  </div>
 </div>
+
+<!-- Navegación por categorías via enlace; no se requiere JS adicional -->
 @endsection

@@ -15,9 +15,14 @@
     <!-- Categoría -->
     <div>
         <label class="block font-medium">Categoría</label>
-        <input type="number" name="id_category"
-               value="{{ old('id_category', $producto->id_category ?? '') }}"
-               class="w-full border rounded-lg px-3 py-2 @error('id_category') border-red-500 @enderror">
+        <select name="id_category" class="w-full border rounded-lg px-3 py-2 @error('id_category') border-red-500 @enderror">
+            <option value="">Selecciona una categoría</option>
+            @isset($categoryOptions)
+                @foreach($categoryOptions as $id => $label)
+                    <option value="{{ $id }}" {{ (string)old('id_category', $producto->id_category ?? '') === (string)$id ? 'selected' : '' }}>{{ $label }}</option>
+                @endforeach
+            @endisset
+        </select>
         @error('id_category')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
     </div>
 
@@ -118,7 +123,7 @@
 
     <!-- Botón -->
     <div class="col-span-2 flex justify-end">
-        <button type="submit" class="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-lg shadow">
+        <button type="submit" class="px-4 py-2 rounded-lg flex items-center bg-pink-300 text-white py-2 rounded hover:bg-pink-400 cursor-pointer">
             {{ isset($producto) ? 'Actualizar' : 'Guardar' }}
         </button>
     </div>
