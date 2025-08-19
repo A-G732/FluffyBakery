@@ -14,7 +14,7 @@ class AuthController extends Controller
 {
     public function indexgeneral()
     {
-        return view('users/indexgeneral');
+        return view('users.indexgeneral');
     }
 
     public function store(Request $request)
@@ -52,8 +52,10 @@ class AuthController extends Controller
         $registers->password = $users->password;
         $registers->save();
 
-        return to_route('indexgeneral')->with('success', '¡Registro completado
-        correctamente!');
+        //notificacion de verififación
+        $users->sendEmailVerificationNotification();
+
+        return redirect()->route('indexgeneral')->with('success', '¡Registro completado correctamente! Revisa tu correo electrónico para verificar tu cuenta.');
     }
 
     public function loguear(Request $request)
@@ -66,30 +68,28 @@ class AuthController extends Controller
             'email.email' => 'Este formato no es válido.',
             'password.required' => 'La contraseña es obligatoria.',
         ]);
-        $credenciales = [
-            'email' => $request->email,
-            'password' => $request->password
-        ];
+        $credenciales = $request->only('email', 'password');
 
         if (Auth::attempt($credenciales)) {
-            $users = Auth::user();
+            $user = Auth::user();
 
-            if (!$users->hasVerifiedEmail()) {
+            if (!$user->hasVerifiedEmail()) {
                 Auth::logout();
-                return redirect()->route('login')->withErrors(['login' => 'Debes verificar tu correo electrónico.']);
+                return redirect()->route('indexgeneral')->withErrors(['login' => 'Debes verificar tu correo electrónico antes de ingresar.']);
             }
 
             // Verificar el rol del usuario y redirigir a la ruta correspondiente
-            if ($users->role === 'admin') {
+            if ($user->role === 'admin') {
                 return redirect()->route('admin.index')->with('success', '¡Inicio de sesión exitoso!'); // Ruta de admin
-            } else if ($users->role === 'client') {
-                return redirect()->route('users/indexgeneral')->with('success', '¡Inicio de sesión exitoso!'); // Ruta de cliente
+            } else if ($user->role === 'cliente') {
+                return redirect()->route('indexgeneral')->with('success', '¡Inicio de sesión exitoso!'); // Ruta de cliente
             }
-        } else {
-            return back()->withErrors(['login' => 'Correo o contraseña incorrectos.'])->withInput();
         }
+        
+        return back()->withErrors(['login' => 'Correo o contraseña incorrectos.'])->withInput();
     }
 
+    //Form de contacto
     public function message(Request $request)
     {
         $request->validate([
