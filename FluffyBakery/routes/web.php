@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Auth;
@@ -24,6 +25,8 @@ Route::get('/', function () {
     return view('users/indexgeneral');
 })->name('home');
 
+Route::get('/', fn () => redirect()->route('productos.index'));
+Route::resource('productos', ProductoController::class);
 Route::post('/', [AuthController::class, 'store'])->name('store');
 Route::post('/login', [AuthController::class, 'loguear'])->name('loguear');
 Route::get('/indexgeneral', [AuthController::class, 'indexgeneral'])->name('indexgeneral');
