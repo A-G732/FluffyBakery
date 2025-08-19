@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProductoController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +24,15 @@ Route::get('/', function () {
 
 Route::get('/', fn () => redirect()->route('productos.index'));
 Route::resource('productos', ProductoController::class);
+Route::post('/', [AuthController::class, 'store'])->name('store');
+Route::get('/indexgeneral', [AuthController::class, 'indexgeneral'])->name('indexgeneral');
+Route::post('/login', [AuthController::class, 'loguear'])->name('loguear');
+Route::get('/admin', function () {
+    return view('admin.index');
+})->name('admin.index')->middleware('auth');
+
+//verificacion de email
+Auth::routes(['verify' => true]);
+Route::get('/admin', function () {
+    return view('admin.index');
+})->middleware(['auth', 'verified'])->name('indexAdmin');

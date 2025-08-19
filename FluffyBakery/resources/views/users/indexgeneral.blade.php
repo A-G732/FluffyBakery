@@ -73,12 +73,36 @@
     <!-- Fin Carrousel -->
 
     <!-- Producto destacado  -->
+        <section class="py-16 bg-gray-100 text-center">
+            <h2 class="text-3xl font-bold mb-6">Producto Destacado</h2>
+            <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8">
+                <img src="{{ asset('storage/img/galletapiedelimon1.jpeg') }}" alt="Producto Destacado" class="mx-auto w-64 h-64 object-cover rounded">
+                <h3 class="text-xl font-semibold mt-4">Galleta Pie de limón</h3>
+                <p class="mt-2 text-gray-600">La favorita de la casa que siempre está en nuestro top 1, nuestra galelta pie de limón.</p>
+            </div>
+        </section>
     <!-- Fin producto destacado -->
 
     <!-- Reseña de quienes somos -->
+        <!-- Quiénes Somos -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-6 md:mb-0">
+                    <img src="{{ asset('storage/img/todasgalletasgeneral.jpeg') }}" alt="Quiénes Somos" class="rounded shadow-lg mx-auto w-64 h-64 object-cover rounded">
+                </div>
+                <div class="md:w-1/2 md:pl-10">
+                    <h2 class="text-3xl font-bold mb-4">¿Quiénes Somos?</h2>
+                    <p class="text-gray-700 mb-6">Somos una reposteria que busca esparcir amor y felicidad a nuestros amigos y seres queridos por medio de tortas, galletas y postres que hagan nuestros días distintos.</p>
+                    
+                </div>
+            </div>
+        </section>
+
+
     <!-- Fin de reseña -->
 
     <!-- Footer -->
+     @include('layouts.footer')
     <!-- Fin de foooter -->
 </body>
 </html>
